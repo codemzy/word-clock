@@ -34,9 +34,9 @@ function setTime() {
       }
     }
   }
-  // set past / to
+  // set past / to / oclock
   if (minutes === 0) {
-    
+    document.querySelector('.oclock').classList.add('active');
   } else if (minutes > 0 && minutes <= 30) {
     setMinutes(minutes);
     // add past active classes
