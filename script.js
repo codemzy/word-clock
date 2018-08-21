@@ -38,13 +38,14 @@ function setTime() {
   } else if (minutes >= 30) {
     document.querySelector('#half').classList.add('active');
   }
-  if (minutes > 4 && minutes < 35) {
+  if (minutes > 0 && minutes <= 30) {
     // add time active classes
     document.querySelectorAll('.past').forEach(function(past) {
       past.classList.add('active');
     });
-  } else if (minutes >= 35) {
+  } else if (minutes > 30) {
     document.querySelector('.to').classList.add('active');
+    var minutesLeft = 60 - minutes;
   }
   // set hour
   document.querySelector('#hours #' + numberWords[hour]).classList.add('active');
