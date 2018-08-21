@@ -39,7 +39,10 @@ function setTime() {
     document.querySelector('#half').classList.add('active');
   }
   if (minutes < 35) {
-    document.querySelector('#past').classList.add('active');
+  // add time active classes
+  document.querySelectorAll('.past').forEach(function(past) {
+    past.classList.add('active');
+  });
   } else if (minutes >= 35) {
     document.querySelector('#to').classList.add('active');
   }
