@@ -12,9 +12,10 @@ function getTime() {
 function setTime() {
   var time = getTime();
   var hour = time.hours <= 12 ? time.hours : time.hours - 12; // change from 24 hour
+  var minutes = time.minutes;
   // set minutes
-  if (time.minutes <= 0) {
-  
+  if (minutes <= 0) {
+    document.querySelector('#hours #' + numberWords[hour]).classList.add('active');
   }
   // set hour
   document.querySelector('#hours #' + numberWords[hour]).classList.add('active');
