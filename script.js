@@ -1,7 +1,15 @@
 var date = Date.now();
 
-function setTime() {
+function getTime() {
   var now = new Date();
   var mins = now.getMinutes();
-  var hour = now.getHours();
+  var hours = now.getHours();
+  return {minutes: mins, hours: hours};
 };
+
+function setTime() {
+  var time = getTime();
+  
+}
+
+
