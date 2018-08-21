@@ -1,11 +1,17 @@
 /* CSS files add styling rules to your content */
 
 body {
-  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-  margin: 2em;
+  margin: 0;
+  font-family: 'Overpass Mono', monospace;
 }
 
-h1 {
-  font-style: italic;
-  color: #373fff;
+.dark {
+  background: #000;
+  color: #fff;
+}
+
+#clock {
+  width: 400px;
+  height: 400px;
+  margin: 40px auto;
 }
