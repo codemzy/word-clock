@@ -22,29 +22,29 @@ function setTime() {
   var hour = time.hours <= 12 ? time.hours : time.hours - 12; // change from 24 hour
   var minutes = time.minutes;
   // set minutes
-  if (minutes <= 0) {
+  if (minutes < 5) {
     document.querySelector('#oclock').classList.add('active');
-  } else if (minutes <= 5 || minutes >= 55) {
+  } else if (minutes < 10 || minutes >= 55) {
     document.querySelector('#mins-five').classList.add('active');
-  } else if (minutes <= 10 || minutes >= 50) {
+  } else if (minutes < 15 || minutes >= 50) {
     document.querySelector('#mins-ten').classList.add('active');
-  } else if (minutes <= 15 || minutes >= 45) {
+  } else if (minutes < 20 || minutes >= 45) {
     document.querySelector('#quarter').classList.add('active');
-  } else if (minutes <= 20 || minutes >= 40) {
+  } else if (minutes < 25 || minutes >= 40) {
     document.querySelector('#twenty').classList.add('active');
-  } else if (minutes <= 25 || minutes >= 35) {
+  } else if (minutes < 30 || minutes >= 35) {
     document.querySelector('#twenty').classList.add('active');
     document.querySelector('#mins-five').classList.add('active');
-  } else if (minutes <= 30 || minutes >= 30) {
+  } else if (minutes >= 30) {
     document.querySelector('#half').classList.add('active');
   }
-  if (minutes < 35) {
-  // add time active classes
-  document.querySelectorAll('.past').forEach(function(past) {
-    past.classList.add('active');
-  });
+  if (minutes > 4 && minutes < 35) {
+    // add time active classes
+    document.querySelectorAll('.past').forEach(function(past) {
+      past.classList.add('active');
+    });
   } else if (minutes >= 35) {
-    document.querySelector('#to').classList.add('active');
+    document.querySelector('.to').classList.add('active');
   }
   // set hour
   document.querySelector('#hours #' + numberWords[hour]).classList.add('active');
