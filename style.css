@@ -5,6 +5,10 @@ body {
 
 .dark {
   background: #000;
+  color: #222;
+}
+
+.dark .active {
   color: #fff;
 }
 
