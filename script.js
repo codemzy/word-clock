@@ -15,7 +15,11 @@ function setTime() {
   var minutes = time.minutes;
   // set minutes
   if (minutes <= 0) {
-    document.querySelector('#hours #' + numberWords[hour]).classList.add('active');
+    document.querySelector('#oclock').classList.add('active');
+  } else if (minutes <= 5 || minutes >= 55 ) {
+    document.querySelector('#oclock').classList.add('active');
+  } else if (minutes < 10) {
+    
   }
   // set hour
   document.querySelector('#hours #' + numberWords[hour]).classList.add('active');
