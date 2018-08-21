@@ -26,7 +26,12 @@ function setTime() {
     if (mins === 30) {
       document.querySelector('#minutes .half').classList.add('active');
     } else {
-      document.querySelector('#minutes .' + numberWords[mins]).classList.add('active');
+      if (mins < 21) {
+        document.querySelector('#minutes .' + numberWords[mins]).classList.add('active');
+      } else {
+        document.querySelector('#minutes .twenty').classList.add('active');
+        document.querySelector('#minutes .' + numberWords[mins%10]).classList.add('active');
+      }
       // minutes / minute word
       if (mins !== 15 && mins > 1) {
         document.querySelector('#minutes .minutes').classList.add('active');
