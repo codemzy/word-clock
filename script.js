@@ -1,6 +1,6 @@
 var date = Date.now();
 
-var numberWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+var numberWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen'];
 
 function getTime() {
   var now = new Date();
@@ -27,10 +27,18 @@ function setTime() {
       document.querySelector('#minutes .quarter').classList.add('active');
     } else if (mins === 30) {
       document.querySelector('#minutes .half').classList.add('active');
-    } else if (mins > 10) {
-      console.log( mins % 10 );
     } else {
-      document.querySelector('#minutes .' + numberWords[mins]).classList.add('active');
+      if (mins === 13) {
+        document.querySelector('#minutes .thirteen').classList.add('active');
+      } else if (mins > 10) {
+        if (Math.floor(mins / 10) === 2 ) {
+          document.querySelector('#minutes .twenty').classList.add('active');
+        }
+          var remaining = mins % 10; // remaining minutes
+      } else {
+        document.querySelector('#minutes .' + numberWords[mins]).classList.add('active');
+      }
+      document.querySelector('#minutes .minutes').classList.add('active');
     }
   }
     
