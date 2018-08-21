@@ -10,6 +10,14 @@ function getTime() {
 };
 
 function setTime() {
+  // remove any active classes
+  document.querySelectorAll('.active').forEach(function(active) {
+    active.classList.remove('active');
+  });
+  // add time active classes
+  document.querySelectorAll('.time').forEach(function(time) {
+    time.classList.add('active');
+  });
   var time = getTime();
   var hour = time.hours <= 12 ? time.hours : time.hours - 12; // change from 24 hour
   var minutes = time.minutes;
