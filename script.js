@@ -1,6 +1,6 @@
 var date = Date.now();
 
-var numberWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen'];
+var numberWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'quarter', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'];
 
 function getTime() {
   var now = new Date();
@@ -23,44 +23,21 @@ function setTime() {
   var minutes = time.minutes;
   // set minutes
   function setMinutes(mins) {
-    if (mins === 15) {
-      document.querySelector('#minutes .quarter').classList.add('active');
-    } else if (mins === 30) {
+    if (mins === 30) {
       document.querySelector('#minutes .half').classList.add('active');
     } else {
-      if (mins === 13) {
-        document.querySelector('#minutes .thirteen').classList.add('active');
-      } else if (mins > 10) {
-        if (Math.floor(mins / 10) === 2 ) {
-          document.querySelector('#minutes .twenty').classList.add('active');
-        }
-          var remaining = mins % 10; // remaining minutes
-      } else {
-        document.querySelector('#minutes .' + numberWords[mins]).classList.add('active');
+      document.querySelector('#minutes .' + numberWords[mins]).classList.add('active');
+      if (mins !== 15 && mins > 1) {
+        document.querySelector('#minutes .minutes').classList.add('active');
+      } else if (mins === 1) {
+        document.querySelector('#minutes .minute').classList.add('active');
       }
-      document.querySelector('#minutes .minutes').classList.add('active');
     }
   }
+  // set past / to
+  if (minutes === 0) {
     
-    
-    // if (minutes < 5) {
-    //   document.querySelector('#oclock').classList.add('active');
-    // } else if (minutes < 10 || minutes >= 55) {
-    //   document.querySelector('#mins-five').classList.add('active');
-    // } else if (minutes < 15 || minutes >= 50) {
-    //   document.querySelector('#mins-ten').classList.add('active');
-    // } else if (minutes < 20 || minutes >= 45) {
-    //   document.querySelector('#quarter').classList.add('active');
-    // } else if (minutes < 25 || minutes >= 40) {
-    //   document.querySelector('#twenty').classList.add('active');
-    // } else if (minutes < 30 || minutes >= 35) {
-    //   document.querySelector('#twenty').classList.add('active');
-    //   document.querySelector('#mins-five').classList.add('active');
-    // } else if (minutes >= 30) {
-    //   document.querySelector('#half').classList.add('active');
-    // }
-  
-  if (minutes > 0 && minutes <= 30) {
+  } else if (minutes > 0 && minutes <= 30) {
     setMinutes(minutes);
     // add past active classes
     document.querySelectorAll('.past').forEach(function(past) {
