@@ -27,6 +27,7 @@ function setTime() {
       document.querySelector('#minutes .half').classList.add('active');
     } else {
       document.querySelector('#minutes .' + numberWords[mins]).classList.add('active');
+      // minutes / minute word
       if (mins !== 15 && mins > 1) {
         document.querySelector('#minutes .minutes').classList.add('active');
       } else if (mins === 1) {
