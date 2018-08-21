@@ -22,30 +22,46 @@ function setTime() {
   var hour = time.hours <= 12 ? time.hours : time.hours - 12; // change from 24 hour
   var minutes = time.minutes;
   // set minutes
-  if (minutes < 5) {
-    document.querySelector('#oclock').classList.add('active');
-  } else if (minutes < 10 || minutes >= 55) {
-    document.querySelector('#mins-five').classList.add('active');
-  } else if (minutes < 15 || minutes >= 50) {
-    document.querySelector('#mins-ten').classList.add('active');
-  } else if (minutes < 20 || minutes >= 45) {
-    document.querySelector('#quarter').classList.add('active');
-  } else if (minutes < 25 || minutes >= 40) {
-    document.querySelector('#twenty').classList.add('active');
-  } else if (minutes < 30 || minutes >= 35) {
-    document.querySelector('#twenty').classList.add('active');
-    document.querySelector('#mins-five').classList.add('active');
-  } else if (minutes >= 30) {
-    document.querySelector('#half').classList.add('active');
+  function setMinutes(mins) {
+    if (mins === 15) {
+      document.querySelector('#minutes .quarter').classList.add('active');
+    } else if (mins === 30) {
+      document.querySelector('#minutes .half').classList.add('active');
+    } else if (mins > 10) {
+      console.log( mins % 10 );
+    } else {
+      document.querySelector('#minutes .' + numberWords[mins]).classList.add('active');
+    }
   }
+    
+    
+    // if (minutes < 5) {
+    //   document.querySelector('#oclock').classList.add('active');
+    // } else if (minutes < 10 || minutes >= 55) {
+    //   document.querySelector('#mins-five').classList.add('active');
+    // } else if (minutes < 15 || minutes >= 50) {
+    //   document.querySelector('#mins-ten').classList.add('active');
+    // } else if (minutes < 20 || minutes >= 45) {
+    //   document.querySelector('#quarter').classList.add('active');
+    // } else if (minutes < 25 || minutes >= 40) {
+    //   document.querySelector('#twenty').classList.add('active');
+    // } else if (minutes < 30 || minutes >= 35) {
+    //   document.querySelector('#twenty').classList.add('active');
+    //   document.querySelector('#mins-five').classList.add('active');
+    // } else if (minutes >= 30) {
+    //   document.querySelector('#half').classList.add('active');
+    // }
+  
   if (minutes > 0 && minutes <= 30) {
-    // add time active classes
+    setMinutes(minutes);
+    // add past active classes
     document.querySelectorAll('.past').forEach(function(past) {
       past.classList.add('active');
     });
   } else if (minutes > 30) {
     document.querySelector('.to').classList.add('active');
     var minutesLeft = 60 - minutes;
+    setMinutes(minutesLeft);
   }
   // set hour
   document.querySelector('#hours #' + numberWords[hour]).classList.add('active');
