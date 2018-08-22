@@ -32,7 +32,7 @@ function setTime() {
         document.querySelector('#minutes .' + numberWords[mins]).classList.add('active');
       } else {
         mins >= 20 ? document.querySelector('#minutes .twenty').classList.add('active') : document.querySelector('#minutes .teen').classList.add('active'); // twenty or teen
-        document.querySelector('#minutes .' + numberWords[mins%10]).classList.add('active');
+        mins%10 ? document.querySelector('#minutes .' + numberWords[mins%10]).classList.add('active') : false; // if minutes remaining
       }
       // minutes / minute word
       if (mins !== 15 && mins > 1) {
