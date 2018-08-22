@@ -1,12 +1,15 @@
 Word Clock
 =================
 
-A date and time clock in words.
+A time clock in words.
 
-Also want to do 
+**Features**
 
-**Future plans**
+- accurate version with all minutes
+- am / pm
 
-- time only accurate version with all minutes and am / pm
-- time only version with seconds
-- a date only version
+**Future Plans**
+
+- colour options
+
+
