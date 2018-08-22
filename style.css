@@ -13,12 +13,27 @@ body {
 }
 
 #clock {
-  width: 400px;
-  height: 400px;
+  width: 390px;
   margin: 40px auto;
-  padding-left: 15px;
   text-transform: uppercase;
+  text-align: center;
+  line-height: 1.24;
+}
+
+#clock .row {
   letter-spacing: 15px;
   font-size: 25px;
-  line-height: 1.24;
+}
+
+@media only screen and (min-width: 620px)  {
+  #clock {
+    width: 570px;
+    font-size: 45px;
+    letter-spacing: 20px;
+  }
+  
+  #clock .row {
+    font-size: 40px;
+    letter-spacing: 20px;
+  }
 }
