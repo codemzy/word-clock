@@ -1,6 +1,6 @@
 var date = Date.now();
 
-var numberWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'quarter', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'];
+var numberWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen'];
 
 function getTime() {
   var now = new Date();
@@ -25,12 +25,14 @@ function setTime() {
   function setMinutes(mins) {
     if (mins === 30) {
       document.querySelector('#minutes .half').classList.add('active');
+    } else if (mins === 15) {
+      document.querySelector('#minutes .quarter').classList.add('active');
     } else {
-      if (mins < 21) {
+      if (mins <= 13) {
         document.querySelector('#minutes .' + numberWords[mins]).classList.add('active');
       } else {
-        document.querySelector('#minutes .twenty').classList.add('active');
-        document.querySelector('#minutes .' + numberWords[mins%10]).classList.add('active');
+        mins >= 20 ? document.querySelector('#minutes .twenty').classList.add('active') : document.querySelector('#minutes .teen').classList.add('active'); // twenty or teen
+        mins%10 ? document.querySelector('#minutes .' + numberWords[mins%10]).classList.add('active') : false; // if minutes remaining
       }
       // minutes / minute word
       if (mins !== 15 && mins > 1) {
