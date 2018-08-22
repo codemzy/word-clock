@@ -57,7 +57,7 @@ function setTime() {
     setMinutes(minutesLeft);
   }
   // set hour
-  document.querySelector('#hours #' + numberWords[hour]).classList.add('active');
+  minutes > 30 ? document.querySelector('#hours #' + numberWords[hour + 1]).classList.add('active') : document.querySelector('#hours #' + numberWords[hour]).classList.add('active'); // if to add hour
   // am / pm
   document.querySelector(time.hours < 12 ? '.am' : '.pm').classList.add('active');
 }
