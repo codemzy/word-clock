@@ -58,6 +58,8 @@ function setTime() {
   }
   // set hour
   document.querySelector('#hours #' + numberWords[hour]).classList.add('active');
+  // am / pm
+  document.querySelector(time.hours < 12 ? '.am' : '.pm').classList.add('active');
 }
 
 // run function every second

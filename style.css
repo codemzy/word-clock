@@ -1,24 +1,59 @@
 body {
   margin: 0;
   font-family: 'Overpass Mono', monospace;
+  background: #192025;
+  color: rgba(255, 255, 255, 0.1);
 }
 
-.dark {
-  background: #000;
-  color: #222;
-}
-
-.dark .active {
+.active {
   color: #fff;
 }
 
 #clock {
-  width: 400px;
-  height: 400px;
+  width: 390px;
   margin: 40px auto;
-  padding-left: 15px;
   text-transform: uppercase;
+  text-align: center;
+  line-height: 1.24;
+}
+
+#clock .row {
   letter-spacing: 15px;
   font-size: 25px;
-  line-height: 1.24;
+}
+
+@media only screen and (min-width: 620px)  {
+  #clock {
+    width: 570px;
+    font-size: 45px;
+    letter-spacing: 20px;
+  }
+  
+  #clock .row {
+    font-size: 40px;
+    letter-spacing: 20px;
+  }
+}
+
+/* optional colours */
+
+.white {
+  background: #ffffff;
+  color: rgba(25, 32, 37, 0.1);
+}
+
+.white .active {
+  color: #192025;
+}
+
+.blue {
+  background: #1e5bc3;
+}
+
+.red {
+  background: #b02336;
+}
+
+.black {
+  background: #000000;
 }
